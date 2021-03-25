@@ -1,5 +1,6 @@
 class Backer
     attr_accessor :name, :project 
+    @@all = []
 
     def initialize(name)
         @name = name
@@ -16,7 +17,7 @@ class Backer
     end
 
     def backed_projects
-        Project.all.select { |project| project.backer.name == self }
+        Project.all.select { |project| project.backer == self }
     end
 
 
